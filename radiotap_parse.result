@@ -1,0 +1,408 @@
+/fields/0-length-PSDU.html
+/fields/A-MPDU%20status.html
+/fields/Antenna%20noise.html
+/fields/Antenna%20signal.html
+/fields/Antenna.html
+/fields/Channel.html
+/fields/FHSS.html
+/fields/Flags.html
+/fields/HE-MU-other-user.html
+/fields/HE-MU.html
+/fields/HE.html
+/fields/L-SIG.html
+/fields/Lock%20quality.html
+/fields/MCS.html
+/fields/RX%20flags.html
+/fields/Radiotap%20Namespace.html
+/fields/Rate.html
+/fields/TSFT.html
+/fields/TX%20attenuation.html
+/fields/VHT.html
+/fields/Vendor%20Namespace.html
+/fields/dB%20TX%20attenuation.html
+/fields/dB%20antenna%20noise.html
+/fields/dB%20antenna%20signal.html
+/fields/dBm%20TX%20power.html
+/fields/timestamp.html
+/fields/RSSI.html
+/fields/RTS%20retries.html
+/fields/TX%20flags.html
+/fields/XChannel.html
+/fields/data%20retries.html
+/fields/extended%20flags.html
+/fields/hardware%20queue.html
+[['0', 'TSFT', 'u64 mactime'], ['1', 'Flags', 'u8 flags'], ['2', 'Rate', 'u8'], ['3', 'Channel', 'u16 frequency, u16 flags'], ['4', 'FHSS', 'u8 hop set, u8 hop pattern'], ['5', 'Antenna signal', 's8'], ['6', 'Antenna noise', 's8'], ['7', 'Lock quality', 'u16'], ['8', 'TX attenuation', 'u16'], ['9', 'dB TX attenuation', 'u16'], ['10', 'dBm TX power', 's8'], ['11', 'Antenna', 'u8'], ['12', 'dB antenna signal', 'u8'], ['13', 'dB antenna noise', 'u8'], ['14', 'RX flags', 'u16'], ['15', 'TX flags', 'u16 flags'], ['15', 'hardware queue', 'u8 queue'], ['16', 'RSSI', 'u8 rssi, u8 max_rssi'], ['16', 'RTS retries', 'u8 retries'], ['17', 'data retries', 'u8 retries'], ['18', 'XChannel', 'u32 flags, u16 freq, u8 channel, u8 maxpower'], ['19', 'MCS', 'u8 known, u8 flags, u8 mcs'], ['20', 'A-MPDU status', 'u32 reference number, u16 flags, u8 delimiter CRC value, u8 reserved'], ['21', 'VHT', 'u16 known, u8 flags, u8 bandwidth, u8 mcs_nss[4], u8\ncoding, u8 group_id, u16 partial_aid'], ['22', 'timestamp', 'u64 timestamp, u16 accuracy, u8 unit/position, u8 flags'], ['22', 'extended flags', 'u32 flags'], ['23', 'HE', 'u16 data1, data2, data3, data4, data5, data6'], ['24', 'HE-MU', 'u16 flags1'], ['25', 'HE-MU-other-user', 'u16 per_user_1, per_user_2'], ['26', '0-length-PSDU', 'u8 type'], ['27', 'L-SIG', 'u16 data1, data2'], ['29', 'Radiotap Namespace', 'no contents'], ['30', 'Vendor Namespace', 'u8 OUI[3], u8 sub_namespace, u16 skip_length']]
+struct tsft{
+	uint64_t mactime;
+};
+
+struct flags{
+	uint8_t flags;
+};
+
+typedef uint8_t rate;
+
+struct channel{
+	uint16_t frequency;
+	uint16_t flags;
+};
+
+struct fhss{
+	uint8_t hop_set;
+	uint8_t hop_pattern;
+};
+
+typedef int8_t antenna_signal;
+
+typedef int8_t antenna_noise;
+
+typedef uint16_t lock_quality;
+
+typedef uint16_t tx_attenuation;
+
+typedef uint16_t db_tx_attenuation;
+
+typedef int8_t dbm_tx_power;
+
+typedef uint8_t antenna;
+
+typedef uint8_t db_antenna_signal;
+
+typedef uint8_t db_antenna_noise;
+
+typedef uint16_t rx_flags;
+
+struct tx_flags{
+	uint16_t flags;
+};
+
+struct hardware_queue{
+	uint8_t queue;
+};
+
+struct rssi{
+	uint8_t rssi;
+	uint8_t max_rssi;
+};
+
+struct rts_retries{
+	uint8_t retries;
+};
+
+struct data_retries{
+	uint8_t retries;
+};
+
+struct xchannel{
+	uint32_t flags;
+	uint16_t freq;
+	uint8_t channel;
+	uint8_t maxpower;
+};
+
+struct mcs{
+	uint8_t known;
+	uint8_t flags;
+	uint8_t mcs;
+};
+
+struct a_mpdu_status{
+	uint32_t reference_number;
+	uint16_t flags;
+	uint8_t delimiter_crc_value;
+	uint8_t reserved;
+};
+
+struct vht{
+	uint16_t known;
+	uint8_t flags;
+	uint8_t bandwidth;
+	uint8_t mcs_nss[4];
+	uint8_t coding;
+	uint8_t group_id;
+	uint16_t partial_aid;
+};
+
+struct timestamp{
+	uint64_t timestamp;
+	uint16_t accuracy;
+	uint8_t unit_position;
+	uint8_t flags;
+};
+
+struct extended_flags{
+	uint32_t flags;
+};
+
+struct he{
+	uint16_t data1;
+	uint16_t data2;
+	uint16_t data3;
+	uint16_t data4;
+	uint16_t data5;
+	uint16_t data6;
+};
+
+struct he_mu{
+	uint16_t flags1;
+};
+
+struct he_mu_other_user{
+	uint16_t per_user_1;
+	uint16_t per_user_2;
+};
+
+struct zero_length_psdu{
+	uint8_t type;
+};
+
+struct l_sig{
+	uint16_t data1;
+	uint16_t data2;
+};
+
+struct radiotap_namespace{
+	 no_contents;
+};
+
+struct vendor_namespace{
+	uint8_t oui[3];
+	uint8_t sub_namespace;
+	uint16_t skip_length;
+};
+
+enum RADIOTAP_FIELD{
+	TSFT=0,
+	FLAGS=1,
+	RATE=2,
+	CHANNEL=3,
+	FHSS=4,
+	ANTENNA_SIGNAL=5,
+	ANTENNA_NOISE=6,
+	LOCK_QUALITY=7,
+	TX_ATTENUATION=8,
+	DB_TX_ATTENUATION=9,
+	DBM_TX_POWER=10,
+	ANTENNA=11,
+	DB_ANTENNA_SIGNAL=12,
+	DB_ANTENNA_NOISE=13,
+	RX_FLAGS=14,
+	TX_FLAGS=15,
+	HARDWARE_QUEUE=15,
+	RSSI=16,
+	RTS_RETRIES=16,
+	DATA_RETRIES=17,
+	XCHANNEL=18,
+	MCS=19,
+	A_MPDU_STATUS=20,
+	VHT=21,
+	TIMESTAMP=22,
+	EXTENDED_FLAGS=22,
+	HE=23,
+	HE_MU=24,
+	HE_MU_OTHER_USER=25,
+	ZERO_LENGTH_PSDU=26,
+	L_SIG=27,
+	RADIOTAP_NAMESPACE=29,
+	VENDOR_NAMESPACE=30,
+}
+
+if(i==TSFT){
+	tsft b;
+	memcpy(&b,data,sizeof(tsft));
+	elements[i]=b;
+	data += sizeof(tsft);
+}
+else if(i==FLAGS){
+	flags b;
+	memcpy(&b,data,sizeof(flags));
+	elements[i]=b;
+	data += sizeof(flags);
+}
+else if(i==RATE){
+	rate b;
+	memcpy(&b,data,sizeof(rate));
+	elements[i]=b;
+	data += sizeof(rate);
+}
+else if(i==CHANNEL){
+	channel b;
+	memcpy(&b,data,sizeof(channel));
+	elements[i]=b;
+	data += sizeof(channel);
+}
+else if(i==FHSS){
+	fhss b;
+	memcpy(&b,data,sizeof(fhss));
+	elements[i]=b;
+	data += sizeof(fhss);
+}
+else if(i==ANTENNA_SIGNAL){
+	antenna_signal b;
+	memcpy(&b,data,sizeof(antenna_signal));
+	elements[i]=b;
+	data += sizeof(antenna_signal);
+}
+else if(i==ANTENNA_NOISE){
+	antenna_noise b;
+	memcpy(&b,data,sizeof(antenna_noise));
+	elements[i]=b;
+	data += sizeof(antenna_noise);
+}
+else if(i==LOCK_QUALITY){
+	lock_quality b;
+	memcpy(&b,data,sizeof(lock_quality));
+	elements[i]=b;
+	data += sizeof(lock_quality);
+}
+else if(i==TX_ATTENUATION){
+	tx_attenuation b;
+	memcpy(&b,data,sizeof(tx_attenuation));
+	elements[i]=b;
+	data += sizeof(tx_attenuation);
+}
+else if(i==DB_TX_ATTENUATION){
+	db_tx_attenuation b;
+	memcpy(&b,data,sizeof(db_tx_attenuation));
+	elements[i]=b;
+	data += sizeof(db_tx_attenuation);
+}
+else if(i==DBM_TX_POWER){
+	dbm_tx_power b;
+	memcpy(&b,data,sizeof(dbm_tx_power));
+	elements[i]=b;
+	data += sizeof(dbm_tx_power);
+}
+else if(i==ANTENNA){
+	antenna b;
+	memcpy(&b,data,sizeof(antenna));
+	elements[i]=b;
+	data += sizeof(antenna);
+}
+else if(i==DB_ANTENNA_SIGNAL){
+	db_antenna_signal b;
+	memcpy(&b,data,sizeof(db_antenna_signal));
+	elements[i]=b;
+	data += sizeof(db_antenna_signal);
+}
+else if(i==DB_ANTENNA_NOISE){
+	db_antenna_noise b;
+	memcpy(&b,data,sizeof(db_antenna_noise));
+	elements[i]=b;
+	data += sizeof(db_antenna_noise);
+}
+else if(i==RX_FLAGS){
+	rx_flags b;
+	memcpy(&b,data,sizeof(rx_flags));
+	elements[i]=b;
+	data += sizeof(rx_flags);
+}
+else if(i==TX_FLAGS){
+	tx_flags b;
+	memcpy(&b,data,sizeof(tx_flags));
+	elements[i]=b;
+	data += sizeof(tx_flags);
+}
+else if(i==HARDWARE_QUEUE){
+	hardware_queue b;
+	memcpy(&b,data,sizeof(hardware_queue));
+	elements[i]=b;
+	data += sizeof(hardware_queue);
+}
+else if(i==RSSI){
+	rssi b;
+	memcpy(&b,data,sizeof(rssi));
+	elements[i]=b;
+	data += sizeof(rssi);
+}
+else if(i==RTS_RETRIES){
+	rts_retries b;
+	memcpy(&b,data,sizeof(rts_retries));
+	elements[i]=b;
+	data += sizeof(rts_retries);
+}
+else if(i==DATA_RETRIES){
+	data_retries b;
+	memcpy(&b,data,sizeof(data_retries));
+	elements[i]=b;
+	data += sizeof(data_retries);
+}
+else if(i==XCHANNEL){
+	xchannel b;
+	memcpy(&b,data,sizeof(xchannel));
+	elements[i]=b;
+	data += sizeof(xchannel);
+}
+else if(i==MCS){
+	mcs b;
+	memcpy(&b,data,sizeof(mcs));
+	elements[i]=b;
+	data += sizeof(mcs);
+}
+else if(i==A_MPDU_STATUS){
+	a_mpdu_status b;
+	memcpy(&b,data,sizeof(a_mpdu_status));
+	elements[i]=b;
+	data += sizeof(a_mpdu_status);
+}
+else if(i==VHT){
+	vht b;
+	memcpy(&b,data,sizeof(vht));
+	elements[i]=b;
+	data += sizeof(vht);
+}
+else if(i==TIMESTAMP){
+	timestamp b;
+	memcpy(&b,data,sizeof(timestamp));
+	elements[i]=b;
+	data += sizeof(timestamp);
+}
+else if(i==EXTENDED_FLAGS){
+	extended_flags b;
+	memcpy(&b,data,sizeof(extended_flags));
+	elements[i]=b;
+	data += sizeof(extended_flags);
+}
+else if(i==HE){
+	he b;
+	memcpy(&b,data,sizeof(he));
+	elements[i]=b;
+	data += sizeof(he);
+}
+else if(i==HE_MU){
+	he_mu b;
+	memcpy(&b,data,sizeof(he_mu));
+	elements[i]=b;
+	data += sizeof(he_mu);
+}
+else if(i==HE_MU_OTHER_USER){
+	he_mu_other_user b;
+	memcpy(&b,data,sizeof(he_mu_other_user));
+	elements[i]=b;
+	data += sizeof(he_mu_other_user);
+}
+else if(i==ZERO_LENGTH_PSDU){
+	zero_length_psdu b;
+	memcpy(&b,data,sizeof(zero_length_psdu));
+	elements[i]=b;
+	data += sizeof(zero_length_psdu);
+}
+else if(i==L_SIG){
+	l_sig b;
+	memcpy(&b,data,sizeof(l_sig));
+	elements[i]=b;
+	data += sizeof(l_sig);
+}
+else if(i==RADIOTAP_NAMESPACE){
+	radiotap_namespace b;
+	memcpy(&b,data,sizeof(radiotap_namespace));
+	elements[i]=b;
+	data += sizeof(radiotap_namespace);
+}
+else if(i==VENDOR_NAMESPACE){
+	vendor_namespace b;
+	memcpy(&b,data,sizeof(vendor_namespace));
+	elements[i]=b;
+	data += sizeof(vendor_namespace);
+}
+else 
